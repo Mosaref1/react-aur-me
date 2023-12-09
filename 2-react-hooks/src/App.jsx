@@ -24,6 +24,7 @@ function App() {
   } ,[length,numberAllow,charaterAllow,setPassword])
   
   const copytopassword = useCallback(() => {
+    PasswordRef.current?.select()
     window.navigator.clipboard.writeText(Password)
   },[Password])
 
@@ -32,6 +33,9 @@ function App() {
     PasswordGenrator()
   },[length,charaterAllow,numberAllow,PasswordGenrator])
 
+  // const buttonStyle ={
+  //   backgroundColor: clicked?"red":"blue"
+  // }
 
   return (
     <>
@@ -40,10 +44,10 @@ function App() {
       <div className=" flex justify-center mt-7">
         <input value={Password} type="text" placeholder='Password'
         ref={PasswordRef}
-         readOnly className='outline-none  px-16 py-2 ml-3' />
+         readOnly className='outline-none w-96 px-2 py-2 ml-3' />
         <button 
         onClick={copytopassword}
-        className='bg-blue-900 text-white outline-none  px-3  '
+        className='bg-blue-900 text-white outline-none  px-3'
         >Copy</button>
         </div>
         <div className=" flex justify-center mt-7">
